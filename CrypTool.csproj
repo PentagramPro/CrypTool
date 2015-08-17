@@ -58,6 +58,31 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TLV\TlvParser.cs" />
+    <Compile Include="Tools\ITool.cs" />
+    <Compile Include="Tools\Tool3DES.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\Tool3DES.Designer.cs">
+      <DependentUpon>Tool3DES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ToolRSA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\ToolRSA.Designer.cs">
+      <DependentUpon>ToolRSA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ToolSHA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\ToolSHA.Designer.cs">
+      <DependentUpon>ToolSHA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ToolTLV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\ToolTLV.Designer.cs">
+      <DependentUpon>ToolTLV.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -70,6 +95,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Tools\Tool3DES.resx">
+      <DependentUpon>Tool3DES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ToolRSA.resx">
+      <DependentUpon>ToolRSA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ToolSHA.resx">
+      <DependentUpon>ToolSHA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ToolTLV.resx">
+      <DependentUpon>ToolTLV.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
