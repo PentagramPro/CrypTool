@@ -51,14 +51,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PluginLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StaticUtils.cs" />
     <Compile Include="TextCube.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TLV\TlvParser.cs" />
-    <Compile Include="Tools\ITool.cs" />
     <Compile Include="Tools\Tool3DES.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -70,12 +69,6 @@
     </Compile>
     <Compile Include="Tools\ToolRSA.Designer.cs">
       <DependentUpon>ToolRSA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Tools\ToolSHA.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Tools\ToolSHA.Designer.cs">
-      <DependentUpon>ToolSHA.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\ToolTLV.cs">
       <SubType>UserControl</SubType>
@@ -101,9 +94,6 @@
     <EmbeddedResource Include="Tools\ToolRSA.resx">
       <DependentUpon>ToolRSA.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tools\ToolSHA.resx">
-      <DependentUpon>ToolSHA.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Tools\ToolTLV.resx">
       <DependentUpon>ToolTLV.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,7 +110,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="CryptCommon\CryptCommon.csproj">
+      <Project>{0f0c8d70-afa1-452c-9482-0c4ce47fe9d5}</Project>
+      <Name>CryptCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="CryptHashes\CryptHashes.csproj">
+      <Project>{c3eb1210-66ce-4308-a4f8-c507d07d7b43}</Project>
+      <Name>CryptHashes</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

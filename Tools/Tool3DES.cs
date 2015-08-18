@@ -23,5 +23,15 @@ namespace CrypTool.Tools
     {
       throw new NotImplementedException();
     }
+
+    public string GetName()
+    {
+      return "3DES";
+    }
+
+    public Control GetControl()
+    {
+      return this;
+    }
   }
 }

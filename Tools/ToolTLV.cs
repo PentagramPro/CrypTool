@@ -52,6 +52,16 @@ namespace CrypTool.Tools
       result = sb.ToString();
     }
 
+    public string GetName()
+    {
+      return "TLV";
+    }
+
+    public Control GetControl()
+    {
+      return this;
+    }
+
     private void PrintParsedTlv(List<TLVTemplate> tlv, StringBuilder sb)
     {
       if (chkViVO.Checked)

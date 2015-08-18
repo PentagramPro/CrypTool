@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Numerics;
 using System.Security.Cryptography;
+using System.Text;
 
-namespace CrypTool
+namespace CryptCommon
 {
-  class StaticUtils
+  public class StaticUtils
   {
     public static byte[] StringToByteArrayFastest(string hex)
     {

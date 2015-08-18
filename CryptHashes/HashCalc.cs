@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrypTool.Tools;
 
-namespace CrypTool.Tools
+namespace CryptHashes
 {
-  public partial class ToolSHA : UserControl, ITool
+  public partial class HashCalc : UserControl, ITool
   {
-    public ToolSHA()
+    public HashCalc()
     {
       InitializeComponent();
     }
@@ -20,6 +21,16 @@ namespace CrypTool.Tools
     public void ProcessData(byte[] data, out string result)
     {
       throw new NotImplementedException();
+    }
+
+    public string GetName()
+    {
+      return "Hashes";
+    }
+
+    public Control GetControl()
+    {
+      return this;
     }
   }
 }

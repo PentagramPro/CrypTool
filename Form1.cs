@@ -15,13 +15,26 @@ namespace CrypTool
 {
   public partial class Form1 : Form
   {
+    private PluginLoader<ITool> tools; 
     public Form1()
     {
       InitializeComponent();
       dataType.SelectedIndex=0;
       resType.SelectedIndex = 0;
       
+      tools = new PluginLoader<ITool>();
 
+      foreach (var tool in tools.Plugins)
+      {
+        TabPage tab = new TabPage();
+        tab.Name = tool.GetName();
+        tab.Text = tool.GetName();
+        tab.Tag = tool;
+        tab.Controls.Add(tool.GetControl());
+        tool.GetControl().Dock = DockStyle.Fill;
+        
+        tabFunctions.TabPages.Add(tab);
+      }
     }
 
     private void button1_Click(object sender, EventArgs e)
@@ -29,7 +42,7 @@ namespace CrypTool
       
       try
       {
-        ITool tool = tabFunctions.SelectedTab.Controls.OfType<ITool>().First();
+        ITool tool = tabFunctions.SelectedTab.Tag as ITool;
         string result;
         byte[] src = txtData.GetTextAs(GetDataFormat(dataType));
 

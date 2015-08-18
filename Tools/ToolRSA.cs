@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CryptCommon;
 
 namespace CrypTool.Tools
 {
@@ -26,6 +27,16 @@ namespace CrypTool.Tools
 
       string res = StaticUtils.ByteArrayToString(StaticUtils.EncryptRSA(data, mod, exp));
       result = res;
+    }
+
+    public string GetName()
+    {
+      return "RSA";
+    }
+
+    public Control GetControl()
+    {
+      return this;
     }
   }
 }
