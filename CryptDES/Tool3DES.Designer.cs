@@ -1,4 +1,6 @@
-﻿namespace CrypTool.Tools
+﻿
+
+namespace CrypTool.Tools
 {
   partial class Tool3DES
   {

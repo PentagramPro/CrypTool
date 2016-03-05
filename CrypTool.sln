@@ -1,20 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrypTool", "CrypTool.csproj", "{984CB7E3-F4F8-43A0-B467-99B35551BE70}"
 	ProjectSection(ProjectDependencies) = postProject
+		{6964230A-A7F4-41F5-9B85-EEFE9693C5BA} = {6964230A-A7F4-41F5-9B85-EEFE9693C5BA}
 		{C3EB1210-66CE-4308-A4F8-C507D07D7B43} = {C3EB1210-66CE-4308-A4F8-C507D07D7B43}
 		{0F0C8D70-AFA1-452C-9482-0C4CE47FE9D5} = {0F0C8D70-AFA1-452C-9482-0C4CE47FE9D5}
+		{049757F0-F2A5-44C4-912B-3DB7ABDE4167} = {049757F0-F2A5-44C4-912B-3DB7ABDE4167}
+		{50D3C7F1-6616-44A0-9DC8-FEEEEB446E8B} = {50D3C7F1-6616-44A0-9DC8-FEEEEB446E8B}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptCommon", "CryptCommon\CryptCommon.csproj", "{0F0C8D70-AFA1-452C-9482-0C4CE47FE9D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptHashes", "CryptHashes\CryptHashes.csproj", "{C3EB1210-66CE-4308-A4F8-C507D07D7B43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptVivo", "CryptVivo\CryptVivo.csproj", "{50D3C7F1-6616-44A0-9DC8-FEEEEB446E8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptDES", "CryptDES\CryptDES.csproj", "{049757F0-F2A5-44C4-912B-3DB7ABDE4167}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptRSA", "CryptRSA\CryptRSA.csproj", "{6964230A-A7F4-41F5-9B85-EEFE9693C5BA}"
+EndProject
 Global
-	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
-		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -32,8 +40,23 @@ Global
 		{C3EB1210-66CE-4308-A4F8-C507D07D7B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3EB1210-66CE-4308-A4F8-C507D07D7B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3EB1210-66CE-4308-A4F8-C507D07D7B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50D3C7F1-6616-44A0-9DC8-FEEEEB446E8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50D3C7F1-6616-44A0-9DC8-FEEEEB446E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50D3C7F1-6616-44A0-9DC8-FEEEEB446E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50D3C7F1-6616-44A0-9DC8-FEEEEB446E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{049757F0-F2A5-44C4-912B-3DB7ABDE4167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{049757F0-F2A5-44C4-912B-3DB7ABDE4167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{049757F0-F2A5-44C4-912B-3DB7ABDE4167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{049757F0-F2A5-44C4-912B-3DB7ABDE4167}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6964230A-A7F4-41F5-9B85-EEFE9693C5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6964230A-A7F4-41F5-9B85-EEFE9693C5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6964230A-A7F4-41F5-9B85-EEFE9693C5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6964230A-A7F4-41F5-9B85-EEFE9693C5BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
 	EndGlobalSection
 EndGlobal

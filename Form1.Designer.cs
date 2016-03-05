@@ -35,20 +35,13 @@ namespace CrypTool
       this.dataType = new System.Windows.Forms.ComboBox();
       this.resType = new System.Windows.Forms.ComboBox();
       this.tabFunctions = new System.Windows.Forms.TabControl();
-      this.tabRsa = new System.Windows.Forms.TabPage();
-      this.panel1 = new CrypTool.Tools.ToolRSA();
-      this.tab3DES = new System.Windows.Forms.TabPage();
-      this.tool3DES1 = new CrypTool.Tools.Tool3DES();
-      this.tabTLV = new System.Windows.Forms.TabPage();
-      this.toolTLV1 = new CrypTool.Tools.ToolTLV();
+
       this.splitContainer1 = new System.Windows.Forms.SplitContainer();
       this.button1 = new System.Windows.Forms.Button();
       this.txtData = new CrypTool.TextCube();
       this.txtRes = new CrypTool.TextCube();
       this.tabFunctions.SuspendLayout();
-      this.tabRsa.SuspendLayout();
-      this.tab3DES.SuspendLayout();
-      this.tabTLV.SuspendLayout();
+
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
       this.splitContainer1.Panel1.SuspendLayout();
       this.splitContainer1.Panel2.SuspendLayout();
@@ -99,9 +92,7 @@ namespace CrypTool
       // 
       // tabFunctions
       // 
-      this.tabFunctions.Controls.Add(this.tabRsa);
-      this.tabFunctions.Controls.Add(this.tab3DES);
-      this.tabFunctions.Controls.Add(this.tabTLV);
+
       this.tabFunctions.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tabFunctions.Location = new System.Drawing.Point(0, 0);
       this.tabFunctions.Name = "tabFunctions";
@@ -111,59 +102,7 @@ namespace CrypTool
       // 
       // tabRsa
       // 
-      this.tabRsa.Controls.Add(this.panel1);
-      this.tabRsa.Location = new System.Drawing.Point(4, 22);
-      this.tabRsa.Name = "tabRsa";
-      this.tabRsa.Padding = new System.Windows.Forms.Padding(3);
-      this.tabRsa.Size = new System.Drawing.Size(680, 291);
-      this.tabRsa.TabIndex = 1;
-      this.tabRsa.Text = "RSA";
-      this.tabRsa.UseVisualStyleBackColor = true;
-      // 
-      // panel1
-      // 
-      this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.panel1.Location = new System.Drawing.Point(3, 3);
-      this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(674, 285);
-      this.panel1.TabIndex = 0;
-      // 
-      // tab3DES
-      // 
-      this.tab3DES.Controls.Add(this.tool3DES1);
-      this.tab3DES.Location = new System.Drawing.Point(4, 22);
-      this.tab3DES.Name = "tab3DES";
-      this.tab3DES.Padding = new System.Windows.Forms.Padding(3);
-      this.tab3DES.Size = new System.Drawing.Size(680, 291);
-      this.tab3DES.TabIndex = 2;
-      this.tab3DES.Text = "3DES";
-      this.tab3DES.UseVisualStyleBackColor = true;
-      // 
-      // tool3DES1
-      // 
-      this.tool3DES1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tool3DES1.Location = new System.Drawing.Point(3, 3);
-      this.tool3DES1.Name = "tool3DES1";
-      this.tool3DES1.Size = new System.Drawing.Size(674, 285);
-      this.tool3DES1.TabIndex = 0;
-      // 
-      // tabTLV
-      // 
-      this.tabTLV.Controls.Add(this.toolTLV1);
-      this.tabTLV.Location = new System.Drawing.Point(4, 22);
-      this.tabTLV.Name = "tabTLV";
-      this.tabTLV.Size = new System.Drawing.Size(680, 291);
-      this.tabTLV.TabIndex = 3;
-      this.tabTLV.Text = "TLV";
-      this.tabTLV.UseVisualStyleBackColor = true;
-      // 
-      // toolTLV1
-      // 
-      this.toolTLV1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.toolTLV1.Location = new System.Drawing.Point(0, 0);
-      this.toolTLV1.Name = "toolTLV1";
-      this.toolTLV1.Size = new System.Drawing.Size(680, 291);
-      this.toolTLV1.TabIndex = 0;
+   
       // 
       // splitContainer1
       // 
@@ -232,9 +171,7 @@ namespace CrypTool
       this.Name = "Form1";
       this.Text = "CrypTool";
       this.tabFunctions.ResumeLayout(false);
-      this.tabRsa.ResumeLayout(false);
-      this.tab3DES.ResumeLayout(false);
-      this.tabTLV.ResumeLayout(false);
+
       this.splitContainer1.Panel1.ResumeLayout(false);
       this.splitContainer1.Panel1.PerformLayout();
       this.splitContainer1.Panel2.ResumeLayout(false);
@@ -253,14 +190,11 @@ namespace CrypTool
     private System.Windows.Forms.ComboBox dataType;
     private System.Windows.Forms.ComboBox resType;
     private System.Windows.Forms.TabControl tabFunctions;
-    private System.Windows.Forms.TabPage tabRsa;
+
     private System.Windows.Forms.SplitContainer splitContainer1;
     private System.Windows.Forms.Button button1;
-    private System.Windows.Forms.TabPage tab3DES;
-    private System.Windows.Forms.TabPage tabTLV;
-    private ToolRSA panel1;
-    private Tool3DES tool3DES1;
-    private ToolTLV toolTLV1;
+
+ 
   }
 }
 

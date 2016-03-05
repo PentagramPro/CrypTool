@@ -8,11 +8,11 @@ using CryptCommon;
 
 namespace CrypTool
 {
-  enum DataFormat
+  public enum DataFormat
   {
     Hex, Ascii, Unicode
   }
-  class TextCube : TextBox
+  public class TextCube : TextBox
   {
     public byte[] GetTextAs(DataFormat format)
     {
