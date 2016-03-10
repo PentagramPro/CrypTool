@@ -7,12 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CryptCommon.Interfaces;
 
 namespace CrypTool.Tools
 {
   public partial class Tool3DES : UserControl, ITool
   {
-    public Tool3DES()
+		public ISettings Settings
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public Tool3DES()
     {
       InitializeComponent();
       cmb3DESChaining.SelectedIndex = 0;

@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Excptions\DataFormatException.cs" />
+    <Compile Include="Formats\DataFormatAscii.cs" />
+    <Compile Include="Formats\DataFormatHex.cs" />
+    <Compile Include="Formats\DataFormatUnicode.cs" />
     <Compile Include="Interfaces\IDataFormat.cs" />
     <Compile Include="Interfaces\ISettings.cs" />
     <Compile Include="Interfaces\ITool.cs" />

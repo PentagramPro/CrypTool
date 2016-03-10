@@ -8,5 +8,7 @@ namespace CryptCommon.Interfaces
 {
     public interface IDataFormat
     {
+		byte[] ParseString(string str);
+		string ToString(byte[] data);
     }
 }

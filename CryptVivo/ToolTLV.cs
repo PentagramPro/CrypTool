@@ -8,12 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IvanListener;
+using CryptCommon.Interfaces;
 
 namespace CrypTool.Tools
 {
   public partial class ToolTLV : UserControl, ITool
   {
-    public ToolTLV()
+		public ISettings Settings
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public ToolTLV()
     {
       InitializeComponent();
     }
