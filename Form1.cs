@@ -44,11 +44,19 @@ namespace CrypTool
 			resType.Items.Add(new DataFormatAscii());
 			resType.Items.Add(new DataFormatUnicode());
 
+            dataType.SelectedIndexChanged += DataFormatSelected;
+		    resType.SelectedIndexChanged += DataFormatSelected;
 			dataType.SelectedIndex = 0;
 			resType.SelectedIndex = 0;
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+        private void DataFormatSelected(object sender, EventArgs e)
+        {
+            txtData.DataFormat = dataType.SelectedItem as IDataFormat;
+            //txtRes.DataFormat = resType.SelectedItem as IDataFormat;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
 		{
 
 			try

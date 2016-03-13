@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +17,20 @@ namespace CrypTool
 	{
 		public IDataFormat DataFormat {get;set;}
 
-		protected override void InitLayout()
+       // [PropertyTab("IsNumaric")]
+        [DisplayName("Color Empty")]
+        [Category("Appearance")]
+        public Color ColorEmpty { get; set; }
+
+        [DisplayName("Color Error")]
+        [Category("Appearance")]
+        public Color ColorError { get; set; }
+
+        [DisplayName("Color Ok")]
+        [Category("Appearance")]
+        public Color ColorOk { get; set; }
+
+        protected override void InitLayout()
 		{
 			base.InitLayout();
 			Validating += TextCube_Validating;
@@ -25,14 +40,24 @@ namespace CrypTool
 		{
 			if (DataFormat == null)
 				return;
-			try
-			{
-				DataFormat.ParseString(Text);
-			}
-			catch(DataFormatException ex)
-			{
-				e.Cancel = true;
-			}
+
+		    if (Text.Length == 0)
+		    {
+		        BackColor = ColorEmpty;
+		    }
+		    else
+		    {
+			    try
+			    {
+				    DataFormat.ParseString(Text);
+			        BackColor = ColorOk;
+			    }
+			    catch(DataFormatException ex)
+			    {
+			        BackColor = ColorError;
+			    }
+		    }
+
 		}
 
 		public byte[] ToDataFormat()
