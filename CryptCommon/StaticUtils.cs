@@ -40,7 +40,7 @@ namespace CryptCommon
 			return hex.ToString();
 		}
 
-
+        /*
 		public static byte[] Encrypt3DES(byte[] data, byte[] key, CipherMode mode, bool encrypt)
 		{
 			TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
@@ -56,7 +56,7 @@ namespace CryptCommon
 			//Release resources held by TripleDes Encryptor
 			tdes.Clear();
 			return resultArray;
-		}
+		}*/
 
 
 	}

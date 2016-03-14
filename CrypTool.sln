@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrypTool", "CrypTool.csproj", "{984CB7E3-F4F8-43A0-B467-99B35551BE70}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -21,6 +21,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptDES", "CryptDES\CryptDES.csproj", "{049757F0-F2A5-44C4-912B-3DB7ABDE4167}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptRSA", "CryptRSA\CryptRSA.csproj", "{6964230A-A7F4-41F5-9B85-EEFE9693C5BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrypToolTests", "CrypToolTests\CrypToolTests.csproj", "{9456A552-F3D5-4DAD-8BEA-B7E7185A2231}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6964230A-A7F4-41F5-9B85-EEFE9693C5BA} = {6964230A-A7F4-41F5-9B85-EEFE9693C5BA}
+		{C3EB1210-66CE-4308-A4F8-C507D07D7B43} = {C3EB1210-66CE-4308-A4F8-C507D07D7B43}
+		{0F0C8D70-AFA1-452C-9482-0C4CE47FE9D5} = {0F0C8D70-AFA1-452C-9482-0C4CE47FE9D5}
+		{984CB7E3-F4F8-43A0-B467-99B35551BE70} = {984CB7E3-F4F8-43A0-B467-99B35551BE70}
+		{049757F0-F2A5-44C4-912B-3DB7ABDE4167} = {049757F0-F2A5-44C4-912B-3DB7ABDE4167}
+		{50D3C7F1-6616-44A0-9DC8-FEEEEB446E8B} = {50D3C7F1-6616-44A0-9DC8-FEEEEB446E8B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +62,10 @@ Global
 		{6964230A-A7F4-41F5-9B85-EEFE9693C5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6964230A-A7F4-41F5-9B85-EEFE9693C5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6964230A-A7F4-41F5-9B85-EEFE9693C5BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9456A552-F3D5-4DAD-8BEA-B7E7185A2231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9456A552-F3D5-4DAD-8BEA-B7E7185A2231}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9456A552-F3D5-4DAD-8BEA-B7E7185A2231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9456A552-F3D5-4DAD-8BEA-B7E7185A2231}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
