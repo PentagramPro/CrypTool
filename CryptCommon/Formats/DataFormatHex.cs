@@ -10,8 +10,22 @@ namespace CryptCommon.Formats
 {
 	public class DataFormatHex : IDataFormat
 	{
-		public byte[] ParseString(string str) 
+	    private int length = 0;
+
+	    public DataFormatHex()
+	    {
+	    }
+
+	    public DataFormatHex(int length)
+	    {
+	        this.length = length;
+	    }
+
+	    public byte[] ParseString(string str) 
 		{
+            if(length>0 && str.Length!=length*2)
+                throw new DataFormatException("Length must be equal to "+length);
+
 			try {
 				return StaticUtils.StringToByteArrayFastest(str);
 			}

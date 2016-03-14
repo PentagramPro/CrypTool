@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using CryptCommon;
 using CrypTool.Tools;
 using CryptCommon.Formats;
 using CryptCommon.Interfaces;
 
 namespace CrypTool
 {
-	public partial class Form1 : Form
+   
+
+    public partial class Form1 : Form
 	{
 		private PluginLoader<ITool> tools;
 		public Form1()
@@ -36,23 +39,25 @@ namespace CrypTool
 				tabFunctions.TabPages.Add(tab);
 			}
 
-			dataType.Items.Add(new DataFormatHex());
-			dataType.Items.Add(new DataFormatAscii());
-			dataType.Items.Add(new DataFormatUnicode());
+			dataType.AddItem(new DataFormatHex());
+			dataType.AddItem(new DataFormatAscii());
+			dataType.AddItem(new DataFormatUnicode());
 
-			resType.Items.Add(new DataFormatHex());
-			resType.Items.Add(new DataFormatAscii());
-			resType.Items.Add(new DataFormatUnicode());
+			resType.AddItem(new DataFormatHex());
+			resType.AddItem(new DataFormatAscii());
+			resType.AddItem(new DataFormatUnicode());
 
             dataType.SelectedIndexChanged += DataFormatSelected;
 		    resType.SelectedIndexChanged += DataFormatSelected;
 			dataType.SelectedIndex = 0;
 			resType.SelectedIndex = 0;
+
+            
 		}
 
         private void DataFormatSelected(object sender, EventArgs e)
         {
-            txtData.DataFormat = dataType.SelectedItem as IDataFormat;
+            txtData.DataFormat = dataType.EasySelectedObject;
             //txtRes.DataFormat = resType.SelectedItem as IDataFormat;
         }
 
@@ -62,11 +67,14 @@ namespace CrypTool
 			try
 			{
 				ITool tool = tabFunctions.SelectedTab.Tag as ITool;
-				string result;
-				byte[] src = txtData.GetTextAs((IDataFormat)dataType.SelectedItem);
+			    byte[] src = txtData.GetTextAs((IDataFormat)dataType.SelectedItem);
 
-				if (tool != null)
-					tool.ProcessData(src, out result);
+			    if (tool != null)
+			    {
+			        string result;
+			        tool.ProcessData(src, out result);
+			        txtRes.Text = result;
+			    }
 			}
 			catch (Exception ex)
 			{
@@ -102,4 +110,8 @@ namespace CrypTool
 
 		
 	}
+
+    public class DataFormatCombo : EasyCombo<IDataFormat>
+    {
+    }
 }

@@ -1,4 +1,6 @@
-﻿using CrypTool.Tools;
+﻿using CryptCommon;
+using CryptCommon.Interfaces;
+using CrypTool.Tools;
 
 namespace CrypTool
 {
@@ -32,8 +34,8 @@ namespace CrypTool
     {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataType = new System.Windows.Forms.ComboBox();
-            this.resType = new System.Windows.Forms.ComboBox();
+            this.dataType = new DataFormatCombo();
+            this.resType = new DataFormatCombo();
             this.tabFunctions = new System.Windows.Forms.TabControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
@@ -177,8 +179,8 @@ namespace CrypTool
     private System.Windows.Forms.Label label1;
     private TextCube txtRes;
     private System.Windows.Forms.Label label2;
-    private System.Windows.Forms.ComboBox dataType;
-    private System.Windows.Forms.ComboBox resType;
+    private DataFormatCombo dataType;
+    private DataFormatCombo resType;
     private System.Windows.Forms.TabControl tabFunctions;
 
     private System.Windows.Forms.SplitContainer splitContainer1;

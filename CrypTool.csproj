@@ -80,14 +80,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Formats\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="CryptCommon\CryptCommon.csproj">
       <Project>{0f0c8d70-afa1-452c-9482-0c4ce47fe9d5}</Project>
       <Name>CryptCommon</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Formats\" />
-    <Folder Include="Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

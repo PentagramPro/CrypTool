@@ -40,23 +40,8 @@ namespace CryptCommon
 			return hex.ToString();
 		}
 
-        /*
-		public static byte[] Encrypt3DES(byte[] data, byte[] key, CipherMode mode, bool encrypt)
-		{
-			TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
-			tdes.Key = key;
-			tdes.Mode = mode;
-			tdes.Padding = PaddingMode.None;
-			tdes.IV = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0 };
 
-			ICryptoTransform cTransform = encrypt ? tdes.CreateEncryptor() : tdes.CreateDecryptor();
-			//transform the specified region of bytes array to resultArray
-			byte[] resultArray =
-			  cTransform.TransformFinalBlock(data, 0, data.Length);
-			//Release resources held by TripleDes Encryptor
-			tdes.Clear();
-			return resultArray;
-		}*/
+		
 
 
 	}

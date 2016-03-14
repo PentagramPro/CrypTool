@@ -15,26 +15,62 @@ namespace CrypTool
 
 	public class TextCube : TextBox
 	{
-		public IDataFormat DataFormat {get;set;}
+	    private Color colorEmpty = Color.White;
+	    private Color colorError = Color.LightCoral;
+	    private Color colorOk = Color.PaleGreen;
+	    public IDataFormat DataFormat {get;set;}
 
-       // [PropertyTab("IsNumaric")]
-        [DisplayName("Color Empty")]
-        [Category("Appearance")]
-        public Color ColorEmpty { get; set; }
+	    // [PropertyTab("IsNumaric")]
+	    [DisplayName("Color Empty")]
+	    [Category("Appearance")]
+	    public Color ColorEmpty
+	    {
+	        get { return colorEmpty; }
+	        set { colorEmpty = value; Invalidate(); }
+	    }
 
-        [DisplayName("Color Error")]
-        [Category("Appearance")]
-        public Color ColorError { get; set; }
+	    [DisplayName("Color Error")]
+	    [Category("Appearance")]
+	    public Color ColorError
+	    {
+	        get { return colorError; }
+	        set { colorError = value; Invalidate();}
+	    }
 
-        [DisplayName("Color Ok")]
-        [Category("Appearance")]
-        public Color ColorOk { get; set; }
+	    [DisplayName("Color Ok")]
+	    [Category("Appearance")]
+	    public Color ColorOk
+	    {
+	        get { return colorOk; }
+	        set { colorOk = value; Invalidate(); }
+	    }
 
-        protected override void InitLayout()
+	    private Label errorMessage;
+	    protected override void InitLayout()
 		{
+            
 			base.InitLayout();
 			Validating += TextCube_Validating;
-		}
+            errorMessage = new Label();
+            Controls.Add(errorMessage);
+	        errorMessage.Visible = false;
+	        errorMessage.BackColor = Color.LavenderBlush;
+            errorMessage.AutoSize = true;
+        }
+
+	    void ShowError(string text)
+	    {
+	        errorMessage.Text = text;
+	        errorMessage.Visible = true;
+	        
+            errorMessage.Location = new Point((Size.Width-errorMessage.Size.Width)/2,
+                (Size.Height - errorMessage.Size.Height) / 2);
+	    }
+
+	    void HideError()
+	    {
+	        errorMessage.Visible = false;
+	    }
 
 		private void TextCube_Validating(object sender, System.ComponentModel.CancelEventArgs e)
 		{
@@ -44,6 +80,7 @@ namespace CrypTool
 		    if (Text.Length == 0)
 		    {
 		        BackColor = ColorEmpty;
+                HideError();
 		    }
 		    else
 		    {
@@ -51,10 +88,12 @@ namespace CrypTool
 			    {
 				    DataFormat.ParseString(Text);
 			        BackColor = ColorOk;
+                    HideError();
 			    }
 			    catch(DataFormatException ex)
 			    {
 			        BackColor = ColorError;
+                    ShowError(ex.Message);
 			    }
 		    }
 

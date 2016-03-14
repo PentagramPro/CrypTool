@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EasyCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Excptions\DataFormatException.cs" />
     <Compile Include="Formats\DataFormatAscii.cs" />
     <Compile Include="Formats\DataFormatHex.cs" />
