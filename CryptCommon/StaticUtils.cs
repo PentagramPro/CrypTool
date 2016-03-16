@@ -2,13 +2,18 @@
 
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CryptCommon
 {
 	public class StaticUtils
 	{
+        
+
 		public static byte[] StringToByteArrayFastest(string hex)
 		{
+		    hex = hex.Replace(" ", "");
+
 			if (hex.Length % 2 == 1)
 				throw new Exception("The binary key cannot have an odd number of digits");
 
@@ -25,7 +30,7 @@ namespace CryptCommon
 		public static int GetHexVal(char hex)
 		{
 			int val = (int)hex;
-			//Or the two combined, but a bit slower:
+			
 			val -= (val < 58 ? 48 : (val < 97 ? 55 : 87));
 			if (val < 0 || val > 15)
 				throw new Exception("Wrong character: "+hex);
@@ -40,9 +45,5 @@ namespace CryptCommon
 			return hex.ToString();
 		}
 
-
-		
-
-
-	}
+    }
 }

@@ -47,6 +47,7 @@
     <Compile Include="HashCalc.Designer.cs">
       <DependentUpon>HashCalc.cs</DependentUpon>
     </Compile>
+    <Compile Include="IHashLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

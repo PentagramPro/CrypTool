@@ -28,47 +28,43 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.radioMD5 = new System.Windows.Forms.RadioButton();
-      this.radioSHA1 = new System.Windows.Forms.RadioButton();
-      this.SuspendLayout();
-      // 
-      // radioMD5
-      // 
-      this.radioMD5.AutoSize = true;
-      this.radioMD5.Location = new System.Drawing.Point(15, 15);
-      this.radioMD5.Name = "radioMD5";
-      this.radioMD5.Size = new System.Drawing.Size(48, 17);
-      this.radioMD5.TabIndex = 0;
-      this.radioMD5.TabStop = true;
-      this.radioMD5.Text = "MD5";
-      this.radioMD5.UseVisualStyleBackColor = true;
-      // 
-      // radioSHA1
-      // 
-      this.radioSHA1.AutoSize = true;
-      this.radioSHA1.Location = new System.Drawing.Point(15, 58);
-      this.radioSHA1.Name = "radioSHA1";
-      this.radioSHA1.Size = new System.Drawing.Size(56, 17);
-      this.radioSHA1.TabIndex = 1;
-      this.radioSHA1.TabStop = true;
-      this.radioSHA1.Text = "SHA-1";
-      this.radioSHA1.UseVisualStyleBackColor = true;
-      // 
-      // HashCalc
-      // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.Controls.Add(this.radioSHA1);
-      this.Controls.Add(this.radioMD5);
-      this.Name = "HashCalc";
-      this.ResumeLayout(false);
-      this.PerformLayout();
+            this.cmbHashType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // cmbHashType
+            // 
+            this.cmbHashType.FormattingEnabled = true;
+            this.cmbHashType.Location = new System.Drawing.Point(82, 3);
+            this.cmbHashType.Name = "cmbHashType";
+            this.cmbHashType.Size = new System.Drawing.Size(121, 21);
+            this.cmbHashType.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Hash type:";
+            // 
+            // HashCalc
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbHashType);
+            this.Name = "HashCalc";
+            this.Size = new System.Drawing.Size(251, 150);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
     }
 
-    #endregion
+        #endregion
 
-    private System.Windows.Forms.RadioButton radioMD5;
-    private System.Windows.Forms.RadioButton radioSHA1;
-  }
+        private System.Windows.Forms.ComboBox cmbHashType;
+        private System.Windows.Forms.Label label1;
+    }
 }
