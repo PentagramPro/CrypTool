@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CryptCommon;
 using CrypTool.Tools;
 using CryptCommon.Interfaces;
 
@@ -15,28 +16,24 @@ namespace CryptHashes
 {
     public partial class HashCalc : UserControl, ITool
     {
-        public ISettings Settings
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
 
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         public HashCalc()
         {
             InitializeComponent();
+            cmbHashType.AddItem("MD5", MD5.Create());
+            cmbHashType.AddItem("SHA1", SHA1.Create());
+            cmbHashType.SelectedIndex = 0;
+        }
 
+        public void InitTool(string pathToConfig)
+        {
+            
         }
 
         public void ProcessData(byte[] data, out string result)
         {
-            throw new NotImplementedException();
+            result = Utils.ArrayToString(cmbHashType.EasySelectedObject.ComputeHash(data));
         }
 
         public string GetName()

@@ -8,11 +8,13 @@ using System.Windows.Forms;
 
 namespace CrypTool.Tools
 {
-  public interface ITool
-  {
-    void ProcessData(byte[] data, out string result);
-    ISettings Settings { get; set; }
-    string GetName();
-    Control GetControl();
-  }
+    public interface ITool
+    {
+        void InitTool(string pathToConfig);
+        void DeinitTool();
+        void ProcessData(byte[] data, out string result);
+
+        string GetName();
+        Control GetControl();
+    }
 }

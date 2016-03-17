@@ -37,6 +37,18 @@ namespace CryptCommon
                     return default(T);
                 return easyObjects[SelectedIndex];
             }
+            set
+            {
+                try
+                {
+                    int index = easyObjects.First(i => EqualityComparer<T>.Default
+                        .Equals(i.Value, value)).Key;
+                    SelectedIndex = index;
+                }
+                catch (Exception e)
+                {
+                }
+            }
         }
 
 

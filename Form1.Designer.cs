@@ -34,8 +34,8 @@ namespace CrypTool
     {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataType = new DataFormatCombo();
-            this.resType = new DataFormatCombo();
+            this.dataType = new CrypTool.DataFormatCombo();
+            this.resType = new CrypTool.DataFormatCombo();
             this.tabFunctions = new System.Windows.Forms.TabControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
@@ -67,6 +67,8 @@ namespace CrypTool
             // 
             // dataType
             // 
+            this.dataType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dataType.EasySelectedObject = null;
             this.dataType.FormattingEnabled = true;
             this.dataType.Location = new System.Drawing.Point(12, 35);
             this.dataType.Name = "dataType";
@@ -75,6 +77,8 @@ namespace CrypTool
             // 
             // resType
             // 
+            this.resType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.resType.EasySelectedObject = null;
             this.resType.FormattingEnabled = true;
             this.resType.Location = new System.Drawing.Point(12, 106);
             this.resType.Name = "resType";
@@ -164,6 +168,7 @@ namespace CrypTool
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "CrypTool";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

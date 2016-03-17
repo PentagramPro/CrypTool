@@ -20,19 +20,7 @@ namespace CrypTool.Tools
         private DesSettings settings = new DesSettings();
         DesLogic logic = new DesLogic();
 
-        public ISettings Settings
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
+        
         public Tool3DES()
         {
             InitializeComponent();
@@ -46,12 +34,24 @@ namespace CrypTool.Tools
             cmb3DESMode.SelectedIndex = 0;
 
             txt3DESKey.DataFormat = new DataFormatHex(16);
+
+            cmb3DESChaining.SelectedIndexChanged += (sender, args) => UpdateSettings();
+            cmb3DESMode.SelectedIndexChanged += (sender, args) => UpdateSettings();
+            txt3DESKey.Validated += (sender, args) => UpdateSettings();
+        }
+
+        public void InitTool(string pathToConfig)
+        {
+            settings = Settings.Deserialize<DesSettings>(pathToConfig);
+            cmb3DESChaining.EasySelectedObject = settings.Mode;
+            cmb3DESMode.EasySelectedObject = settings.Encrypt;
+            txt3DESKey.Text = Utils.ArrayToString(settings.Key);
         }
 
         public void ProcessData(byte[] data, out string result)
         {
             byte[] res = logic.Encrypt(data, settings);
-            result = StaticUtils.ByteArrayToString(res);
+            result = Utils.ArrayToString(res);
         }
 
         void UpdateSettings()

@@ -11,7 +11,7 @@ namespace CrypToolTests
         public void ByteToString()
         {
             string res;
-            res = StaticUtils.ByteArrayToString(new byte[] {0x54, 0xAF, 0xD5, 0x3E});
+            res = Utils.ArrayToString(new byte[] {0x54, 0xAF, 0xD5, 0x3E});
             Assert.AreEqual(res,"54afd53e");
         }
 
@@ -19,22 +19,22 @@ namespace CrypToolTests
         public void StringToByte()
         {
             byte[] res;
-            res = StaticUtils.StringToByteArrayFastest("005f2a4600");
+            res = Utils.StringToArray("005f2a4600");
 
             CollectionAssert.AreEqual(new byte[] {0x00,0x5f,0x2a,0x46,0x00},res);
 
-            res = StaticUtils.StringToByteArrayFastest("005F2A4600");
+            res = Utils.StringToArray("005F2A4600");
             CollectionAssert.AreEqual(new byte[] { 0x00, 0x5f, 0x2a, 0x46, 0x00 },res);
 
-            res = StaticUtils.StringToByteArrayFastest("00");
+            res = Utils.StringToArray("00");
             CollectionAssert.AreEqual(new byte[] { 0x00},res);
 
-            res = StaticUtils.StringToByteArrayFastest("");
+            res = Utils.StringToArray("");
             Assert.AreEqual(0, res.Length);
 
             try
             {
-                StaticUtils.StringToByteArrayFastest("az");
+                Utils.StringToArray("az");
                 Assert.Fail();
             }
             catch (Exception e)

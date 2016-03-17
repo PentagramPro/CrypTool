@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +27,9 @@ namespace CrypTool
 			
 
 			tools = new PluginLoader<ITool>();
+            string configsFolder = Path.Combine(Application.StartupPath, "./configs");
 
-			foreach (var tool in tools.Plugins)
+            foreach (var tool in tools.Plugins)
 			{
 				TabPage tab = new TabPage();
 				tab.Name = tool.GetName();
@@ -37,6 +39,9 @@ namespace CrypTool
 				tool.GetControl().Dock = DockStyle.Fill;
 
 				tabFunctions.TabPages.Add(tab);
+
+			    string path = Path.Combine(configsFolder,"tool." + tool.GetName() + ".conf");
+                tool.InitTool(path);
 			}
 
 			dataType.AddItem(new DataFormatHex());
@@ -52,7 +57,8 @@ namespace CrypTool
 			dataType.SelectedIndex = 0;
 			resType.SelectedIndex = 0;
 
-            
+		    
+
 		}
 
         private void DataFormatSelected(object sender, EventArgs e)
@@ -67,7 +73,7 @@ namespace CrypTool
 			try
 			{
 				ITool tool = tabFunctions.SelectedTab.Tag as ITool;
-			    byte[] src = txtData.GetTextAs((IDataFormat)dataType.SelectedItem);
+			    byte[] src = txtData.GetTextAs(dataType.EasySelectedObject);
 
 			    if (tool != null)
 			    {
@@ -85,31 +91,14 @@ namespace CrypTool
 
 		}
 
-
-
-
-		/*
-			void DO3DES()
-			{
-			  byte[] src = txtData.GetTextAs(GetDataFormat(dataType));
-			  byte[] key = txt3DESKey.GetTextAs(DataFormat.Hex);
-			  CipherMode mode = CipherMode.ECB;
-			  switch (cmb3DESChaining.SelectedIndex)
-			  {
-				case 0:
-				  mode = CipherMode.ECB; break;
-				case 1:
-				  mode = CipherMode.CBC; break;
-			  }
-
-			  bool encrypt = cmb3DESMode.SelectedIndex == 0;
-			  byte[] res = StaticUtils.Encrypt3DES(src, key, mode, encrypt);
-			  txtRes.Text = StaticUtils.ByteArrayToString(res);
-
-			}*/
-
-		
-	}
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            foreach (var tool in tools.Plugins)
+            {
+                
+            }
+        }
+    }
 
     public class DataFormatCombo : EasyCombo<IDataFormat>
     {

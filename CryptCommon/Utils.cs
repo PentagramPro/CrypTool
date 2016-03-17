@@ -6,11 +6,11 @@ using System.Text.RegularExpressions;
 
 namespace CryptCommon
 {
-	public class StaticUtils
+	public class Utils
 	{
         
 
-		public static byte[] StringToByteArrayFastest(string hex)
+		public static byte[] StringToArray(string hex)
 		{
 		    hex = hex.Replace(" ", "");
 
@@ -37,8 +37,11 @@ namespace CryptCommon
 			return val;
 		}
 
-		public static string ByteArrayToString(byte[] ba)
+		public static string ArrayToString(byte[] ba)
 		{
+		    if (ba == null)
+		        return "";
+
 			StringBuilder hex = new StringBuilder(ba.Length * 2);
 			foreach (byte b in ba)
 				hex.AppendFormat("{0:x2}", b);

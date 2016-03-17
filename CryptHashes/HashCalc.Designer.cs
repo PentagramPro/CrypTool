@@ -28,7 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
-            this.cmbHashType = new System.Windows.Forms.ComboBox();
+            this.cmbHashType = new EasyComboHash();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -64,7 +64,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cmbHashType;
+        private EasyComboHash cmbHashType;
         private System.Windows.Forms.Label label1;
     }
 }

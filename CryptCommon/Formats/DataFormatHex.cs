@@ -27,7 +27,7 @@ namespace CryptCommon.Formats
                 throw new DataFormatException("Length must be equal to "+length);
 
 			try {
-				return StaticUtils.StringToByteArrayFastest(str);
+				return Utils.StringToArray(str);
 			}
 			catch(Exception e)
 			{
@@ -37,7 +37,7 @@ namespace CryptCommon.Formats
 
 		public string ToString(byte[] data)
 		{
-			return StaticUtils.ByteArrayToString(data);
+			return Utils.ArrayToString(data);
 		}
 
 		public override string ToString()

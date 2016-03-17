@@ -19,22 +19,6 @@ namespace CrypTool.Tools
 		RsaSettings settings = new RsaSettings();
 		RsaLogic logic = new RsaLogic();
 
-		public ISettings Settings
-		{
-			get
-			{ 
-				return settings;
-			}
-			set
-			{
-
-				settings = value as RsaSettings;
-				txtRsaKey.Text = StaticUtils.ByteArrayToString(settings.Modulus);
-				txtRsaExp.Text = StaticUtils.ByteArrayToString(settings.Exponent);
-			}
-		}
-
-
 		public ToolRSA()
 		{
 			InitializeComponent();
@@ -45,20 +29,26 @@ namespace CrypTool.Tools
 			txtRsaExp.Validated += UpdateSettings;
 		}
 
-		void UpdateSettings(object sender, EventArgs args)
+	    public void InitTool(string pathToConfig)
+	    {
+	        settings = Settings.Deserialize<RsaSettings>(pathToConfig);
+            txtRsaKey.Text = Utils.ArrayToString(settings.Modulus);
+            txtRsaExp.Text = Utils.ArrayToString(settings.Exponent);
+        }
+
+	    void UpdateSettings(object sender, EventArgs args)
 		{
 			settings.Modulus = txtRsaKey.ToDataFormat();
 			settings.Exponent = txtRsaExp.ToDataFormat();
 		}
 		public void ProcessData(byte[] data, out string result)
 		{
-			string res = StaticUtils.ByteArrayToString(logic.Encrypt(data, settings));
-			result = res;
+			result = Utils.ArrayToString(logic.Encrypt(data, settings));
 		}
 
 		public string GetName()
 		{
-			return "RSA";
+			return "Direct RSA";
 		}
 
 		public Control GetControl()

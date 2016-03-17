@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CryptRSA
 {
-    public class RsaSettings : ISettings
+    public class RsaSettings : Settings
     {
         public byte[] Modulus, Exponent;
     }
