@@ -19,6 +19,7 @@ namespace CryptDES
             tdes.Mode = mode;
             tdes.Padding = PaddingMode.None;
             tdes.IV = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0 };
+            
 
             ICryptoTransform cTransform = encrypt ? tdes.CreateEncryptor() : tdes.CreateDecryptor();
             //transform the specified region of bytes array to resultArray

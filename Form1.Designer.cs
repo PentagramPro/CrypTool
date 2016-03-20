@@ -34,13 +34,17 @@ namespace CrypTool
     {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataType = new CrypTool.DataFormatCombo();
-            this.resType = new CrypTool.DataFormatCombo();
             this.tabFunctions = new System.Windows.Forms.TabControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnGeneratePadding = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPadding = new CrypTool.TextCube();
             this.button1 = new System.Windows.Forms.Button();
             this.txtData = new CrypTool.TextCube();
             this.txtRes = new CrypTool.TextCube();
+            this.cmbPadding = new CrypTool.PaddingCombo();
+            this.resType = new CrypTool.DataFormatCombo();
+            this.dataType = new CrypTool.DataFormatCombo();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -65,33 +69,13 @@ namespace CrypTool
             this.label2.TabIndex = 3;
             this.label2.Text = "Result";
             // 
-            // dataType
-            // 
-            this.dataType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dataType.EasySelectedObject = null;
-            this.dataType.FormattingEnabled = true;
-            this.dataType.Location = new System.Drawing.Point(12, 35);
-            this.dataType.Name = "dataType";
-            this.dataType.Size = new System.Drawing.Size(69, 21);
-            this.dataType.TabIndex = 4;
-            // 
-            // resType
-            // 
-            this.resType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.resType.EasySelectedObject = null;
-            this.resType.FormattingEnabled = true;
-            this.resType.Location = new System.Drawing.Point(12, 106);
-            this.resType.Name = "resType";
-            this.resType.Size = new System.Drawing.Size(69, 21);
-            this.resType.TabIndex = 5;
-            // 
             // tabFunctions
             // 
             this.tabFunctions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabFunctions.Location = new System.Drawing.Point(0, 0);
             this.tabFunctions.Name = "tabFunctions";
             this.tabFunctions.SelectedIndex = 0;
-            this.tabFunctions.Size = new System.Drawing.Size(688, 317);
+            this.tabFunctions.Size = new System.Drawing.Size(688, 290);
             this.tabFunctions.TabIndex = 6;
             // 
             // splitContainer1
@@ -104,6 +88,10 @@ namespace CrypTool
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.cmbPadding);
+            this.splitContainer1.Panel1.Controls.Add(this.btnGeneratePadding);
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
+            this.splitContainer1.Panel1.Controls.Add(this.txtPadding);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.txtData);
             this.splitContainer1.Panel1.Controls.Add(this.resType);
@@ -116,14 +104,44 @@ namespace CrypTool
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabFunctions);
             this.splitContainer1.Size = new System.Drawing.Size(688, 549);
-            this.splitContainer1.SplitterDistance = 228;
+            this.splitContainer1.SplitterDistance = 255;
             this.splitContainer1.TabIndex = 7;
+            // 
+            // btnGeneratePadding
+            // 
+            this.btnGeneratePadding.Location = new System.Drawing.Point(601, 195);
+            this.btnGeneratePadding.Name = "btnGeneratePadding";
+            this.btnGeneratePadding.Size = new System.Drawing.Size(75, 21);
+            this.btnGeneratePadding.TabIndex = 9;
+            this.btnGeneratePadding.Text = "Generate";
+            this.btnGeneratePadding.UseVisualStyleBackColor = true;
+            this.btnGeneratePadding.Click += new System.EventHandler(this.btnGeneratePadding_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 198);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Padding:";
+            // 
+            // txtPadding
+            // 
+            this.txtPadding.ColorEmpty = System.Drawing.Color.White;
+            this.txtPadding.ColorError = System.Drawing.Color.LightCoral;
+            this.txtPadding.ColorOk = System.Drawing.Color.PaleGreen;
+            this.txtPadding.DataFormat = null;
+            this.txtPadding.Location = new System.Drawing.Point(64, 195);
+            this.txtPadding.Name = "txtPadding";
+            this.txtPadding.Size = new System.Drawing.Size(420, 20);
+            this.txtPadding.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(409, 193);
+            this.button1.Location = new System.Drawing.Point(490, 222);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(267, 23);
+            this.button1.Size = new System.Drawing.Size(186, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "Apply that function!";
             this.button1.UseVisualStyleBackColor = true;
@@ -160,6 +178,36 @@ namespace CrypTool
             this.txtRes.Size = new System.Drawing.Size(589, 106);
             this.txtRes.TabIndex = 2;
             // 
+            // cmbPadding
+            // 
+            this.cmbPadding.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPadding.EasySelectedObject = null;
+            this.cmbPadding.FormattingEnabled = true;
+            this.cmbPadding.Location = new System.Drawing.Point(490, 195);
+            this.cmbPadding.Name = "cmbPadding";
+            this.cmbPadding.Size = new System.Drawing.Size(105, 21);
+            this.cmbPadding.TabIndex = 10;
+            // 
+            // resType
+            // 
+            this.resType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.resType.EasySelectedObject = null;
+            this.resType.FormattingEnabled = true;
+            this.resType.Location = new System.Drawing.Point(12, 106);
+            this.resType.Name = "resType";
+            this.resType.Size = new System.Drawing.Size(69, 21);
+            this.resType.TabIndex = 5;
+            // 
+            // dataType
+            // 
+            this.dataType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dataType.EasySelectedObject = null;
+            this.dataType.FormattingEnabled = true;
+            this.dataType.Location = new System.Drawing.Point(12, 35);
+            this.dataType.Name = "dataType";
+            this.dataType.Size = new System.Drawing.Size(69, 21);
+            this.dataType.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,8 +238,10 @@ namespace CrypTool
 
     private System.Windows.Forms.SplitContainer splitContainer1;
     private System.Windows.Forms.Button button1;
-
- 
-  }
+        private System.Windows.Forms.Label label3;
+        private TextCube txtPadding;
+        private PaddingCombo cmbPadding;
+        private System.Windows.Forms.Button btnGeneratePadding;
+    }
 }
 

@@ -51,8 +51,11 @@
     <Compile Include="Formats\DataFormatHex.cs" />
     <Compile Include="Formats\DataFormatUnicode.cs" />
     <Compile Include="Interfaces\IDataFormat.cs" />
+    <Compile Include="Interfaces\IPadding.cs" />
     <Compile Include="Interfaces\ISettings.cs" />
     <Compile Include="Interfaces\ITool.cs" />
+    <Compile Include="Paddings\PaddingEmv.cs" />
+    <Compile Include="Paddings\PaddingZeroes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="TextCube.cs">

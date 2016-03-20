@@ -31,6 +31,8 @@ namespace CrypTool.Tools
             
         }
 
+        public int LengthMultiplier { get; }
+
         public class VivoGroup
         {
             public List<TLVTemplate> tlvs = new List<TLVTemplate>();

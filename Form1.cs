@@ -13,6 +13,7 @@ using CryptCommon;
 using CrypTool.Tools;
 using CryptCommon.Formats;
 using CryptCommon.Interfaces;
+using CryptCommon.Paddings;
 
 namespace CrypTool
 {
@@ -65,7 +66,10 @@ namespace CrypTool
 			dataType.SelectedIndex = 0;
 			resType.SelectedIndex = 0;
 
-		    
+		    txtPadding.DataFormat = new DataFormatHex();
+            cmbPadding.AddItem(new PaddingZeroes());
+            cmbPadding.AddItem(new PaddingEmv());
+            cmbPadding.SelectedIndex = 0;
 
 		}
 
@@ -87,11 +91,15 @@ namespace CrypTool
 			{
 				ITool tool = tabFunctions.SelectedTab.Tag as ITool;
 			    byte[] src = txtData.GetTextAs(dataType.EasySelectedObject);
+			    byte[] pad = txtPadding.GetTextAs(txtPadding.DataFormat);
+                byte[] data = new byte[src.Length+pad.Length];
+                Buffer.BlockCopy(src,0,data,0,src.Length);
+                Buffer.BlockCopy(pad, 0, data, src.Length, pad.Length);
 
-			    if (tool != null)
+                if (tool != null)
 			    {
 			        string result;
-			        tool.ProcessData(src, out result);
+			        tool.ProcessData(data, out result);
 			        txtRes.Text = result;
 			    }
 			}
@@ -111,9 +119,32 @@ namespace CrypTool
                 tool.DeinitTool(CombineConfigPath(tool.GetName()));
             }
         }
+
+        private void btnGeneratePadding_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ITool tool = tabFunctions.SelectedTab.Tag as ITool;
+
+                int mul = tool.LengthMultiplier;
+                if (mul < 2)
+                    return;
+
+                byte[] src = txtData.GetTextAs(dataType.EasySelectedObject);
+                byte[] padding = cmbPadding.EasySelectedObject.GeneratePadding(src, mul);
+                txtPadding.Text = Utils.ArrayToString(padding);
+
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
     }
 
     public class DataFormatCombo : EasyCombo<IDataFormat>
     {
     }
+
+    public class PaddingCombo : EasyCombo<IPadding> { }
 }

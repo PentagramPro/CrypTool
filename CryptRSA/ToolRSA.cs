@@ -67,6 +67,6 @@ namespace CrypTool.Tools
 			return this;
 		}
 
-		
+	    public int LengthMultiplier => 1;
 	}
 }

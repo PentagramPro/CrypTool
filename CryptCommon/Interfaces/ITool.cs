@@ -12,9 +12,13 @@ namespace CrypTool.Tools
     {
         void InitTool(string pathToConfig);
         void DeinitTool(string pathToConfig);
+
+
         void ProcessData(byte[] data, out string result);
 
         string GetName();
         Control GetControl();
+
+        int LengthMultiplier { get; }
     }
 }

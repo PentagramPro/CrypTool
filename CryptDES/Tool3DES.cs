@@ -55,6 +55,8 @@ namespace CrypTool.Tools
             Settings.Serialize(pathToConfig,settings);
         }
 
+        public int LengthMultiplier => 8;
+
         public void ProcessData(byte[] data, out string result)
         {
             byte[] res = logic.Encrypt(data, settings);

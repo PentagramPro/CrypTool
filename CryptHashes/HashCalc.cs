@@ -36,6 +36,8 @@ namespace CryptHashes
             
         }
 
+        public int LengthMultiplier => 1;
+
         public void ProcessData(byte[] data, out string result)
         {
             result = Utils.ArrayToString(cmbHashType.EasySelectedObject.ComputeHash(data));
