@@ -28,6 +28,11 @@ namespace CryptHashes
 
         public void InitTool(string pathToConfig)
         {
+           
+        }
+
+        public void DeinitTool(string pathToConfig)
+        {
             
         }
 

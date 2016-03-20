@@ -16,7 +16,7 @@ namespace CryptDES
     [DataContract]
     public class DesSettings : Settings
     {
-        [DataMember] public CipherMode Mode;
+        [DataMember] public CipherMode Mode = CipherMode.CBC;
         [DataMember] public byte[] Key;
         [DataMember] public bool Encrypt;
     }

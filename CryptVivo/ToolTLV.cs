@@ -26,6 +26,11 @@ namespace CrypTool.Tools
             
         }
 
+        public void DeinitTool(string pathToConfig)
+        {
+            
+        }
+
         public class VivoGroup
         {
             public List<TLVTemplate> tlvs = new List<TLVTemplate>();

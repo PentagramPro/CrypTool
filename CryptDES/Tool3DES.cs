@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CryptCommon;
+using CryptCommon.Excptions;
 using CryptCommon.Formats;
 using CryptCommon.Interfaces;
 using CryptDES;
@@ -48,6 +49,12 @@ namespace CrypTool.Tools
             txt3DESKey.Text = Utils.ArrayToString(settings.Key);
         }
 
+        public void DeinitTool(string pathToConfig)
+        {
+            UpdateSettings();
+            Settings.Serialize(pathToConfig,settings);
+        }
+
         public void ProcessData(byte[] data, out string result)
         {
             byte[] res = logic.Encrypt(data, settings);
@@ -56,9 +63,13 @@ namespace CrypTool.Tools
 
         void UpdateSettings()
         {
-            settings.Encrypt = (bool) cmb3DESMode.EasySelectedObject;
-            settings.Key = txt3DESKey.ToDataFormat();
-            settings.Mode = (CipherMode) cmb3DESChaining.EasySelectedObject;
+            try
+            {
+                settings.Encrypt = (bool) cmb3DESMode.EasySelectedObject;
+                settings.Key = txt3DESKey.ToDataFormat();
+                settings.Mode = (CipherMode) cmb3DESChaining.EasySelectedObject;
+            }
+            catch(DataFormatException e) { }
         }
         public string GetName()
         {

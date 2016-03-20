@@ -11,7 +11,7 @@ namespace CrypTool.Tools
     public interface ITool
     {
         void InitTool(string pathToConfig);
-        void DeinitTool();
+        void DeinitTool(string pathToConfig);
         void ProcessData(byte[] data, out string result);
 
         string GetName();

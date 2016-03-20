@@ -21,13 +21,22 @@ namespace CrypTool
     public partial class Form1 : Form
 	{
 		private PluginLoader<ITool> tools;
-		public Form1()
+        private string configsFolder;
+
+
+        public Form1()
 		{
 			InitializeComponent();
 			
 
 			tools = new PluginLoader<ITool>();
-            string configsFolder = Path.Combine(Application.StartupPath, "./configs");
+            configsFolder = Path.Combine(Application.StartupPath, "./configs");
+
+            try
+            {
+                Directory.CreateDirectory(configsFolder);
+            }
+            catch(Exception e) { }
 
             foreach (var tool in tools.Plugins)
 			{
@@ -40,8 +49,7 @@ namespace CrypTool
 
 				tabFunctions.TabPages.Add(tab);
 
-			    string path = Path.Combine(configsFolder,"tool." + tool.GetName() + ".conf");
-                tool.InitTool(path);
+                tool.InitTool(CombineConfigPath(tool.GetName()));
 			}
 
 			dataType.AddItem(new DataFormatHex());
@@ -60,6 +68,11 @@ namespace CrypTool
 		    
 
 		}
+
+        string CombineConfigPath(string toolName)
+        {
+            return Path.Combine(configsFolder, "tool." + toolName + ".conf");
+        }
 
         private void DataFormatSelected(object sender, EventArgs e)
         {
@@ -95,7 +108,7 @@ namespace CrypTool
         {
             foreach (var tool in tools.Plugins)
             {
-                
+                tool.DeinitTool(CombineConfigPath(tool.GetName()));
             }
         }
     }

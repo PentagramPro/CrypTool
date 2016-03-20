@@ -9,6 +9,7 @@ using System.Xml;
 
 namespace CryptCommon.Interfaces
 {
+    [DataContract]
     public abstract class Settings
     {
         public static T Deserialize<T>(string path) where T: new()

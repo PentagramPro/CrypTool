@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CryptCommon;
+using CryptCommon.Excptions;
 using CryptCommon.Interfaces;
 using CryptRSA;
 using CryptCommon.Formats;
@@ -25,9 +26,9 @@ namespace CrypTool.Tools
 			txtRsaExp.DataFormat = new DataFormatHex();
 			txtRsaKey.DataFormat = new DataFormatHex();
 
-			txtRsaKey.Validated += UpdateSettings;
-			txtRsaExp.Validated += UpdateSettings;
-		}
+			txtRsaKey.Validated += (x, y) => UpdateSettings();
+			txtRsaExp.Validated += (x, y) => UpdateSettings();
+        }
 
 	    public void InitTool(string pathToConfig)
 	    {
@@ -36,10 +37,20 @@ namespace CrypTool.Tools
             txtRsaExp.Text = Utils.ArrayToString(settings.Exponent);
         }
 
-	    void UpdateSettings(object sender, EventArgs args)
+	    public void DeinitTool(string pathToConfig)
+	    {
+            UpdateSettings();
+	        Settings.Serialize(pathToConfig,settings);
+	    }
+
+	    void UpdateSettings()
 		{
-			settings.Modulus = txtRsaKey.ToDataFormat();
-			settings.Exponent = txtRsaExp.ToDataFormat();
+	        try
+	        {
+	            settings.Modulus = txtRsaKey.ToDataFormat();
+	            settings.Exponent = txtRsaExp.ToDataFormat();
+	        }
+            catch(DataFormatException e) { }
 		}
 		public void ProcessData(byte[] data, out string result)
 		{
