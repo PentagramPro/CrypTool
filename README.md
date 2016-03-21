@@ -5,7 +5,7 @@ When you develop security libraries or work with cryptographic devices you often
 ## Features
 
 CrypTool allows cryptographic operations to be performed on custom data. One can use online tools for that purpose, but they have one or more of the following problems:
-  * They only accept input in text or only in hex. Or they suppose that you work with ASCII when you need Unicode.
+  * They accept input either in text or in hex but not both. Sometimes they suppose that you work with ASCII when you need Unicode.
   * They accidentally perform padding
   * You can't trust them sensitive data, can you?
   
