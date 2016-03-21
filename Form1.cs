@@ -23,13 +23,13 @@ namespace CrypTool
 	{
 		private PluginLoader<ITool> tools;
         private string configsFolder;
-
+        
 
         public Form1()
 		{
 			InitializeComponent();
-			
 
+            Text += " v"+Application.ProductVersion;
 			tools = new PluginLoader<ITool>();
             configsFolder = Path.Combine(Application.StartupPath, "./configs");
 

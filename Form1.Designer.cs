@@ -38,8 +38,8 @@ namespace CrypTool
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnGeneratePadding = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtPadding = new CrypTool.TextCube();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtPadding = new CrypTool.TextCube();
             this.txtData = new CrypTool.TextCube();
             this.txtRes = new CrypTool.TextCube();
             this.cmbPadding = new CrypTool.PaddingCombo();
@@ -126,6 +126,16 @@ namespace CrypTool
             this.label3.TabIndex = 8;
             this.label3.Text = "Padding:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(490, 222);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Apply that function!";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // txtPadding
             // 
             this.txtPadding.ColorEmpty = System.Drawing.Color.White;
@@ -136,16 +146,6 @@ namespace CrypTool
             this.txtPadding.Name = "txtPadding";
             this.txtPadding.Size = new System.Drawing.Size(420, 20);
             this.txtPadding.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(490, 222);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Apply that function!";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtData
             // 
